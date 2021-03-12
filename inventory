@@ -1,14 +1,22 @@
-
+# Raspberry Pi OS
 [pi]
-192.168.178.30
 192.168.178.29
 192.168.178.25
 
+# Manjaro ARM
+[pi-man]
+192.168.179.30
+
+# Pop-OS
 [pop]
 192.168.178.23
 
+# Ubuntu Server 20.10
 [boxi]
 192.168.178.50
 
 [pi:vars]
+ansible_user=pi
+
+[pi-man_vars]
 ansible_user=pi
