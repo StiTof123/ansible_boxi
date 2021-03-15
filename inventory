@@ -4,8 +4,8 @@
 192.168.178.25
 
 # Manjaro ARM
-[pi-man]
-192.168.179.30
+[pitv]
+192.168.178.30
 
 # Pop-OS
 [pop]
@@ -18,5 +18,5 @@
 [pi:vars]
 ansible_user=pi
 
-[pi-man_vars]
+[pitv:vars]
 ansible_user=pi

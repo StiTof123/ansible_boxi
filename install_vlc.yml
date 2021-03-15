@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+
+    - name: update repository index
+      apt:
+       update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+    - name: install vlc package
+      apt: 
+        name: vlc
+        state: latest
+      when: ansible_distribution == "Ubuntu"
+
+    - pacman: name=vlc, state=installed, update_cache=yes  
