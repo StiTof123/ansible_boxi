@@ -15,3 +15,4 @@
       when: ansible_distribution == "Ubuntu"
 
     - pacman: name=vlc, state=installed, update_cache=yes  
+      when: ansible_distribution == "Manjaro"

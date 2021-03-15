@@ -1,0 +1,19 @@
+---
+host: all
+become: true
+
+ -ansible -m all ping
+
+ - name: Run the equivalent of "apt-get update" as a separate step
+    apt:
+      update_cache: true
+      cache_valid_time: 3600
+    when: ansible_distribution == "Derbian, Ubuntu"
+    
+  - name: Update all packages to the latest version
+    apt:
+      upgrade: dist
+    when: ansible_distribution == "Derbian, Ubuntu"
+
+  - pacman: update_cache: true 
+    when: ansible_distribution == "Manjaro"
