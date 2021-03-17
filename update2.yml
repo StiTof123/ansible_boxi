@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+
+#    - command: uname -a | grep -a -c MANJARO  
+   
+    - name: Run the equivalent of "apt-get update" as a separate step
+      apt:
+        update_cache: true
+        cache_valid_time: 3603
+      when: ansible_distribution in ["Pop!_OS", "Derbian", "Ubuntu"]
+    
+    - name: Update all packages to the latest version
+      apt:
+        upgrade: dist
+      when: ansible_distribution in ["Pop!_OS", "Derbian", "Ubuntu"]
+    
+    - name:
+      community.general.pacman: 
+        update_cache: yes
+        upgrade: yes 
+      when: ansible_distribution == "Manjaro-ARM"
